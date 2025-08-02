@@ -24,7 +24,7 @@ use anyhow::Context;
 //     Ok(apps)
 // }
 
-pub fn installed_apps<P: AsRef<Path>>(apps_dir: P) -> ScoopResult<Vec<String>> {
+pub fn installed_apps<P: AsRef<Path>>(apps_dir: P, _global: bool) -> ScoopResult<Vec<String>> {
     let mut apps = Vec::new();
 
     // 读取 apps 目录（带上下文）
@@ -46,3 +46,5 @@ pub fn installed_apps<P: AsRef<Path>>(apps_dir: P) -> ScoopResult<Vec<String>> {
 
     Ok(apps)
 }
+
+pub mod manifest;
